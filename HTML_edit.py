@@ -3,7 +3,7 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import (QWidget, QApplication, QLineEdit,
 QVBoxLayout, QHBoxLayout, QPushButton, QTextEdit, QMainWindow, QAction)
 
-class PyChrome(QWidget):
+class HTMLeditor(QWidget):
     def __init__(self):
         super().__init__()
         self.resize(740, 520)
@@ -34,6 +34,6 @@ class PyChrome(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    win = PyChrome()
+    win = HTMLeditor()
     win.show()
     sys.exit(app.exec_())
