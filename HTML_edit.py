@@ -11,21 +11,24 @@ class PyChrome(QWidget):
 
         self.nav_bar = QHBoxLayout()
 
-        html = """
+        self.html = """
        <!DOCTYPE HTML>
        <html>
 
         </html>
+
         """
         
         self.web_view = QWebEngineView() 
-        self.web_view.setHtml(html)
+        self.web_view.setHtml(self.html)
 
         root = QVBoxLayout()
         self.textEdit = QTextEdit(self)
         self.textEdit.resize(200,100)
+        self.btnTry = QPushButton("PROBAR")
         root.addWidget(self.web_view)
         root.addWidget(self.textEdit)
+        root.addWidget(self.btnTry)
 
         self.setLayout(root)
 
