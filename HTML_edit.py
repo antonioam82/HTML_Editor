@@ -25,7 +25,7 @@ class HTMLeditor(QWidget):
         root = QVBoxLayout()
         self.textEdit = QTextEdit(self)
         self.btnTry = QPushButton("PROBAR")
-        self.btnTry.clicked.connect(self.hello)
+        self.btnTry.clicked.connect(self.get_code)
         root.addWidget(self.web_view)
         root.addWidget(self.textEdit)
         root.addWidget(self.btnTry)
@@ -33,8 +33,9 @@ class HTMLeditor(QWidget):
 
         self.setLayout(root)
 
-    def hello(self):
-        print("Hello")
+    def get_code(self):
+        mytext = self.textEdit.toPlainText()
+        print(mytext)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
