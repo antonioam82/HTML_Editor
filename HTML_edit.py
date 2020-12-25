@@ -14,6 +14,9 @@ class HTMLeditor(QWidget):
         self.html = """
        <!DOCTYPE HTML>
        <html>
+       <body>
+       <h1>Hello</h1>
+       </body>
 
         </html>
 
@@ -35,10 +38,13 @@ class HTMLeditor(QWidget):
 
     def get_code(self):
         mytext = self.textEdit.toPlainText()
-        print(mytext)
+        self.html=mytext
+        self.web_view.setHtml(self.html)
+        #print(mytext)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     win = HTMLeditor()
     win.show()
     sys.exit(app.exec_())
+
