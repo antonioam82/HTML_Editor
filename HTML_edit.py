@@ -39,9 +39,10 @@ class HTMLeditor(QWidget):
 
     def get_code(self):
         mytext = self.textEdit.toPlainText()
-        self.html=mytext
-        self.web_view.setHtml(self.html)
-        #print(mytext)
+        if mytext != "":
+            self.html=mytext
+            self.web_view.setHtml(self.html)
+            #print(mytext)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
