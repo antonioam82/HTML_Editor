@@ -6,7 +6,7 @@ QVBoxLayout, QHBoxLayout, QPushButton, QTextEdit, QMainWindow, QAction)
 class HTMLeditor(QWidget):
     def __init__(self):
         super().__init__()
-        self.resize(780, 650)
+        self.resize(800, 750)
         self.setWindowTitle('HTML Editor') 
 
         self.nav_bar = QHBoxLayout()
@@ -30,9 +30,11 @@ class HTMLeditor(QWidget):
         self.textEdit = QTextEdit(self)
         self.btnTry = QPushButton("PROBAR")
         self.btnTry.clicked.connect(self.get_code)
+        self.btnSave = QPushButton("GUARDAR")
         root.addWidget(self.web_view)
         root.addWidget(self.textEdit)
         root.addWidget(self.btnTry)
+        root.addWidget(self.btnSave)
         
 
         self.setLayout(root)
