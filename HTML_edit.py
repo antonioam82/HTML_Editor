@@ -19,7 +19,6 @@ class HTMLeditor(QWidget):
        <h1>Hello To Your HTML Editor</h1>
        <h2>Use the bottom box to prove you HTML code</h2>
        </body>
-
         </html>
         """
         
@@ -47,16 +46,23 @@ class HTMLeditor(QWidget):
             self.web_view.setHtml(self.html)
 
     def save_doc(self):
-        if not self.file_path:
-            new_file_path, filter_type = QFileDialog.getSaveFileName(self, "Save this file as...", "", "HTML Files(*.html);;Text Files(*.txt)")
-            if new_file_path:
-                self.file_path = new_file_path
-            else:
-                self.invalid_path_alert_message()
-                return False
-        file_contents = self.textEdit.toPlainText()
-        with open(self.file_path, "w") as f:
-            f.write(file_contents)
+        try:
+            if not self.file_path:
+                new_file_path, filter_type = QFileDialog.getSaveFileName(self, "Save this file as...", "", "HTML Files(*.html);;Text Files(*.txt)")
+                if new_file_path:
+                    self.file_path = new_file_path
+                else:
+                    self.invalid_path_alert_message()
+                    return False
+            file_contents = self.textEdit.toPlainText()
+            with open(self.file_path, "w") as f:
+                f.write(file_contents)
+            
+        except Exception as e:
+            messageBox = QMessageBox()
+            messageBox.setWindowTitle("ERROR")
+            messageBox.setText(str(e))
+            messageBox.exec()
         self.file_path = None
 
     def invalid_path_alert_message(self):
