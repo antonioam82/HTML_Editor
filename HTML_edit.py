@@ -63,7 +63,6 @@ class HTMLeditor(QWidget):
             f.write(file_contents)
         print("OK3")
         self.file_path = None
-        #self.title.setText(self.file_path)
         print("ok4")
 
     
