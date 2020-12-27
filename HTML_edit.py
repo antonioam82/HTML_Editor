@@ -50,7 +50,7 @@ class HTMLeditor(QWidget):
 
     def save_doc(self):
         if not self.file_path:
-            new_file_path, filter_type = QFileDialog.getSaveFileName(self, "Save this file as...", "", "HTML Files(*.html)")
+            new_file_path, filter_type = QFileDialog.getSaveFileName(self, "Save this file as...", "", "HTML Files(*.html);;Text Files(*.txt)")
             if new_file_path:
                 self.file_path = new_file_path
                 print("ok1")
