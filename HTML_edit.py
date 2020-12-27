@@ -21,7 +21,6 @@ class HTMLeditor(QWidget):
        </body>
 
         </html>
-
         """
         
         self.web_view = QWebEngineView() 
@@ -52,19 +51,14 @@ class HTMLeditor(QWidget):
             new_file_path, filter_type = QFileDialog.getSaveFileName(self, "Save this file as...", "", "HTML Files(*.html);;Text Files(*.txt)")
             if new_file_path:
                 self.file_path = new_file_path
-                print("ok1")
             else:
                 self.invalid_path_alert_message()
                 return False
         file_contents = self.textEdit.toPlainText()
-        print("ok2")
         with open(self.file_path, "w") as f:
             f.write(file_contents)
-        print("OK3")
         self.file_path = None
-        print("ok4")
 
-    
     def invalid_path_alert_message(self):
         messageBox = QMessageBox()
         messageBox.setWindowTitle("Invalid file")
