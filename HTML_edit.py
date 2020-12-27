@@ -46,7 +46,6 @@ class HTMLeditor(QWidget):
         if self.mytext != "":
             self.html=self.mytext
             self.web_view.setHtml(self.html)
-            #print(mytext)
 
     def save_doc(self):
         if not self.file_path:
