@@ -57,6 +57,10 @@ class HTMLeditor(QWidget):
             file_contents = self.textEdit.toPlainText()
             with open(self.file_path, "w") as f:
                 f.write(file_contents)
+            messageBox = QMessageBox()
+            messageBox.setWindowTitle("TASK COMPLETED")
+            messageBox.setText("File created successfully.")
+            messageBox.exec()                
             
         except Exception as e:
             messageBox = QMessageBox()
