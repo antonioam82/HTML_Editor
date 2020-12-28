@@ -36,7 +36,6 @@ class HTMLeditor(QWidget):
         root.addWidget(self.btnTry)
         root.addWidget(self.btnSave)
         
-
         self.setLayout(root)
 
     def get_code(self):
