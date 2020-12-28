@@ -16,7 +16,7 @@ class HTMLeditor(QWidget):
        <!DOCTYPE HTML>
        <html>
        <body>
-       <h1>Hello To Your HTML Editor</h1>
+       <h1>Hello To Your HTML Editor...</h1>
        <h2>Use the bottom box to prove you HTML code</h2>
        </body>
         </html>
@@ -36,6 +36,7 @@ class HTMLeditor(QWidget):
         root.addWidget(self.btnTry)
         root.addWidget(self.btnSave)
         
+
         self.setLayout(root)
 
     def get_code(self):
@@ -68,6 +69,7 @@ class HTMLeditor(QWidget):
         messageBox.setText(message)
         messageBox.exec()                
             
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     win = HTMLeditor()
