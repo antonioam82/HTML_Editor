@@ -69,7 +69,6 @@ class HTMLeditor(QWidget):
         messageBox.setText(message)
         messageBox.exec()                
             
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     win = HTMLeditor()
