@@ -1,7 +1,8 @@
 import sys
 from PyQt5.QtWebEngineWidgets import QWebEngineView
-from PyQt5.QtWidgets import (QWidget, QApplication, QLineEdit,
-QVBoxLayout, QHBoxLayout, QPushButton, QMessageBox, QTextEdit, QMainWindow, QFileDialog, QAction)
+from PyQt5.QtWidgets import (QWidget, QLineEdit, QMainWindow, QApplication,
+QPushButton,QVBoxLayout,QMessageBox,QTextEdit, QMainWindow, QFileDialog)
+
 
 class HTMLeditor(QWidget):
     def __init__(self):
@@ -9,6 +10,7 @@ class HTMLeditor(QWidget):
         self.resize(800, 750)
         self.setWindowTitle('HTML Editor')
         self.file_path = None
+        
 
         self.html = """
        <!DOCTYPE HTML>
@@ -50,7 +52,7 @@ class HTMLeditor(QWidget):
                 if new_file_path:
                     self.file_path = new_file_path
                 else:
-                    self.window_message("Invalid file","Selected filename or path is not valid. Please select a valid file.")
+                    self.window_message("NO CREATED","File not created.")
                     return False
             file_contents = self.textEdit.toPlainText()
             with open(self.file_path, "w") as f:
