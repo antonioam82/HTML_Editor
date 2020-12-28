@@ -10,8 +10,6 @@ class HTMLeditor(QWidget):
         self.setWindowTitle('HTML Editor')
         self.file_path = None
 
-        self.nav_bar = QHBoxLayout()
-
         self.html = """
        <!DOCTYPE HTML>
        <html>
@@ -69,10 +67,10 @@ class HTMLeditor(QWidget):
         messageBox.setText(message)
         messageBox.exec()                
             
-
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     win = HTMLeditor()
     win.show()
     sys.exit(app.exec_())
+
 
