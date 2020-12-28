@@ -52,27 +52,21 @@ class HTMLeditor(QWidget):
                 if new_file_path:
                     self.file_path = new_file_path
                 else:
-                    self.invalid_path_alert_message()
+                    self.window_message("Invalid file","Selected filename or path is not valid. Please select a valid file.")
                     return False
             file_contents = self.textEdit.toPlainText()
             with open(self.file_path, "w") as f:
                 f.write(file_contents)
-            messageBox = QMessageBox()
-            messageBox.setWindowTitle("TASK COMPLETED")
-            messageBox.setText("File created successfully.")
-            messageBox.exec()                
+            self.window_message("TASK COMPLETED","File created successfully.")
             
         except Exception as e:
-            messageBox = QMessageBox()
-            messageBox.setWindowTitle("ERROR")
-            messageBox.setText(str(e))
-            messageBox.exec()
+            self.window_message("ERROR",str(e))
         self.file_path = None
 
-    def invalid_path_alert_message(self):
+    def window_message(self,title,message):
         messageBox = QMessageBox()
-        messageBox.setWindowTitle("Invalid file")
-        messageBox.setText("Selected filename or path is not valid. Please select a valid file.")
+        messageBox.setWindowTitle(title)
+        messageBox.setText(message)
         messageBox.exec()                
             
 
