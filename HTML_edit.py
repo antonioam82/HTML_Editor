@@ -3,6 +3,7 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import (QWidget, QLineEdit, QMainWindow, QApplication,
 QPushButton,QVBoxLayout,QMessageBox,QTextEdit, QMainWindow, QFileDialog)
 
+
 class HTMLeditor(QWidget):
     def __init__(self):
         super().__init__()
@@ -10,7 +11,8 @@ class HTMLeditor(QWidget):
         self.setWindowTitle('HTML Editor')
         self.file_path = None
         
-       self.html = """
+
+        self.html = """
        <!DOCTYPE HTML>
        <html>
        <body>
@@ -29,10 +31,13 @@ class HTMLeditor(QWidget):
         self.btnTry.clicked.connect(self.get_code)
         self.btnSave = QPushButton("GUARDAR")
         self.btnSave.clicked.connect(self.save_doc)
+        self.btnOpen = QPushButton("ABRIR")
+        self.btnOpen.clicked.connect(self.open_file)
         root.addWidget(self.web_view)
         root.addWidget(self.textEdit)
         root.addWidget(self.btnTry)
         root.addWidget(self.btnSave)
+        root.addWidget(self.btnOpen)
         
 
         self.setLayout(root)
@@ -65,8 +70,17 @@ class HTMLeditor(QWidget):
         messageBox = QMessageBox()
         messageBox.setWindowTitle(title)
         messageBox.setText(message)
-        messageBox.exec()                
-            
+        messageBox.exec()
+
+    def open_file(self):
+        text_file = QFileDialog.getOpenFileName(self, 'Open File', 'C:\\', 'Text Files (*.txt)')
+
+        if text_file[0]:
+            with open(text_file[0], 'r') as f:
+                datos = '#'+f.read()
+            self.textEdit.setText(datos)
+            self.get_code()
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     win = HTMLeditor()
