@@ -10,8 +10,7 @@ class HTMLeditor(QWidget):
         self.setWindowTitle('HTML Editor')
         self.file_path = None
         
-
-        self.html = """
+       self.html = """
        <!DOCTYPE HTML>
        <html>
        <body>
