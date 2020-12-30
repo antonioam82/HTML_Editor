@@ -3,13 +3,14 @@ from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtWidgets import (QWidget, QLineEdit, QMainWindow, QApplication,
 QPushButton,QVBoxLayout,QMessageBox,QTextEdit, QMainWindow, QFileDialog)
 
+
 class HTMLeditor(QWidget):
     def __init__(self):
         super().__init__()
-        self.resize(800, 750)
+        self.resize(870, 770)
         self.setWindowTitle('HTML Editor')
         self.file_path = None
-        
+
         self.html = """
        <!DOCTYPE HTML>
        <html>
@@ -37,6 +38,7 @@ class HTMLeditor(QWidget):
         root.addWidget(self.btnSave)
         root.addWidget(self.btnOpen)
         
+
         self.setLayout(root)
 
     def get_code(self):
